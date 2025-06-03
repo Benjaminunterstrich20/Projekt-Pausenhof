@@ -1,51 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
 body {
-  font-family: 'Courier New', monospace;
-  background: #fdfcfb;
-  color: #222;
+    background-color: #fffdf5;
+    background-image:
+      linear-gradient(to right, #e0e0e0 1px, transparent 1px),
+      linear-gradient(to bottom, #e0e0e0 1px, transparent 1px);
+    background-size: 40px 40px;
+    font-family: 'Indie Flower', cursive;
+    margin: 0;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    color: #333;
 }
 
 .container {
-  max-width: 500px;
-  margin: 50px auto;
-  padding: 20px;
-  background: #fff;
-  border: 2px solid #222;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    background: #fffefa;
+    border: 2px solid #d2b48c; /* holzfarben */
+    box-shadow: 0 6px 15px rgba(210, 180, 140, 0.4);
+    width: 420px;
+    padding: 25px 30px 35px 30px;
+    border-radius: 12px;
+    box-sizing: border-box;
+    position: relative;
 }
 
-h1, h2 {
-  color: #d10000;
-  text-align: center;
+h1 {
+    font-size: 2.4rem;
+    margin-bottom: 15px;
+    color: #7f5f3d; /* dunkelbraun */
+    text-align: center;
+    user-select: none;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.code {
+    color: #c97c1f; /* goldgelb */
+    font-weight: 700;
 }
 
-input, button {
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 6px;
-  border: 1px solid #aaa;
+.code-form input[type="text"],
+.chat-form input[type="text"] {
+    width: calc(50% - 14px);
+    padding: 10px 12px;
+    margin: 8px 7px 14px 7px;
+    border: 2px solid #d2b48c;
+    border-radius: 6px;
+    background-color: #fffefa;
+    font-size: 18px;
+    font-family: 'Indie Flower', cursive;
+    outline: none;
+    box-shadow: inset 0 0 5px #ecd9b0;
+    transition: border-color 0.25s ease;
 }
 
-button {
-  background-color: #d10000;
-  color: white;
-  cursor: pointer;
+.code-form input[type="text"]:focus,
+.chat-form input[type="text"]:focus {
+    border-color: #c97c1f;
+    box-shadow: 0 0 10px #c97c1f;
+}
+
+.code-form button,
+.chat-form button {
+    width: 100%;
+    padding: 12px 0;
+    background-color: #c97c1f;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Indie Flower', cursive;
+    font-weight: 700;
+    font-size: 20px;
+    color: #fffefa;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 3px 6px #a06016;
+}
+
+.code-form button:hover,
+.chat-form button:hover {
+    background-color: #a06016;
+    box-shadow: 0 5px 10px #8b5011;
 }
 
 .messages {
-  margin-top: 20px;
+    max-height: 380px;
+    overflow-y: auto;
+    margin-top: 25px;
+    border-top: 2px solid #d2b48c;
+    padding-top: 15px;
+    box-sizing: border-box;
 }
 
 .message {
-  background: #ffecec;
-  padding: 10px;
-  border-radius: 5px;
-  margin-bottom: 5px;
-  border-left: 4px solid #d10000;
+    background-color: #fffefa;
+    border-left: 3px solid #c97c1f;
+    margin-bottom: 14px;
+    padding: 12px 18px;
+    box-shadow: inset 0 0 8px #ecd9b0;
+    border-radius: 6px 20px 20px 6px;
+    font-size: 18px;
+    line-height: 1.4;
+    user-select: text;
+    word-break: break-word;
+}
+
+.message strong {
+    color: #7f5f3d;
+    font-weight: 700;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 30px;
+    color: #c97c1f;
+    font-weight: 700;
+    font-family: 'Indie Flower', cursive;
+    text-decoration: none;
+    user-select: none;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: #a06016;
+    text-decoration: underline;
 }
