@@ -1,31 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8" />
-    <title>Flüsterecke</title>
-    <link rel="stylesheet" href="/static/style.css" />
-</head>
+<head><meta charset="UTF-8" /><title>Chatraum {{ code }}</title></head>
 <body>
-    <nav style="background: #00c3a0; padding: 15px; text-align: center;">
-        <a href="/" style="color: white; margin: 0 15px;">🏠 Startseite</a>
-        <a href="/räume" style="color: white; margin: 0 15px;">📂 Alle Räume</a>
-    </nav>
+    <h1>Chatraum: {{ code }}</h1>
 
-    <h1>🗣️ Flüsterecke</h1>
+    <p>Aktuell dran: User {{ user }}</p>
 
-    {% if has_sent %}
-        <p>Du hast schon geflüstert. Warte auf die andere Person.</p>
-    {% else %}
-        <form method="POST">
-            <input type="text" name="message" placeholder="Deine geheime Nachricht" required />
-            <button type="submit">Senden 📤</button>
-        </form>
-    {% endif %}
+    <form method="POST">
+        <input type="text" name="message" placeholder="Deine Nachricht" required />
+        <button type="submit">Senden</button>
+    </form>
 
-    <h3>Bisherige Nachrichten:</h3>
+    <h2>Nachrichtenverlauf:</h2>
     <ul>
         {% for msg in messages %}
-            <li>{{ msg.text }}</li>
+        <li>{{ msg }}</li>
         {% endfor %}
     </ul>
 </body>
