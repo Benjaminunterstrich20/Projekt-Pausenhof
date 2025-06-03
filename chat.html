@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chat – {{ code }}</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>🎤 Flüsterraum: {{ code }}</h2>
+    <form method="POST">
+      <input type="text" name="user" placeholder="Dein Codenamen" required>
+      <input type="text" name="message" placeholder="Deine (einzige) Nachricht" required>
+      <button type="submit">Abschicken</button>
+    </form>
+
+    <div class="messages">
+      {% for user, msg in messages %}
+        <div class="message"><strong>{{ user }}:</strong> {{ msg }}</div>
+      {% endfor %}
+    </div>
+  </div>
+</body>
+</html>
