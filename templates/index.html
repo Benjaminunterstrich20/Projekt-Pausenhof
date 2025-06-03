@@ -2,16 +2,16 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8" />
-    <title>Projekt Pausenhof - Chat starten</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <title>Join Chat Raum</title>
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <div class="container">
-        <h1>🚀 Flüster-Chat starten</h1>
-        <form method="POST" class="code-form">
-            <input type="text" name="code" placeholder="Geheimer Chat-Code" required autofocus />
-            <button type="submit">Los geht's!</button>
-        </form>
-    </div>
+    <h1>Willkommen im RAM-Chat</h1>
+    <form action="{{ url_for('chat') }}" method="POST">
+        <input type="text" name="username" placeholder="Dein Name" required>
+        <input type="text" name="room" placeholder="Raum Code" required>
+        <button type="submit">Join</button>
+    </form>
 </body>
 </html>
