@@ -1,17 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
 <head>
-  <title>Projekt Pausenhof</title>
-  <link rel="stylesheet" href="/static/style.css">
+    <meta charset="UTF-8">
+    <title>Projekt Pausenhof 🧢</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>📚 Projekt Pausenhof</h1>
-    <p>🔒 Nur wer den Code kennt, darf flüstern.</p>
+    <h1>👋 Willkommen beim Projekt Pausenhof</h1>
+    <h2>Flüstere anonym mit einem Geheimcode 🤫</h2>
+
+    {% if error %}
+        <p style="color: red; font-weight: bold;">{{ error }}</p>
+    {% endif %}
+
     <form method="POST">
-      <input type="text" name="code" placeholder="Geheimcode eingeben..." required>
-      <button type="submit">Zutritt</button>
+        <input type="text" name="code" placeholder="🕵️ Dein geheimer Code" required>
+        <button type="submit">🎙️ Chat starten</button>
     </form>
-  </div>
+
+    <p style="text-align:center; margin-top: 20px;">
+        <a href="/räume" style="
+            background:#00c3a0;
+            padding:10px 20px;
+            border-radius:8px;
+            color:white;
+            text-decoration:none;
+            font-weight:bold;
+        ">📂 Zeige alle aktiven Chaträume</a>
+    </p>
+
+    <footer style="margin-top: 40px; text-align: center; font-size: 0.8em;">
+        <p>Made with 💻 von Benni & ChatGPT • 2025</p>
+    </footer>
 </body>
 </html>
