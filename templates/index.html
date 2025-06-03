@@ -1,30 +1,11 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8" />
-    <title>Pausenhof Chat</title>
-    <link rel="stylesheet" href="/static/style.css" />
-</head>
+<head><meta charset="UTF-8" /><title>Chat Code eingeben</title></head>
 <body>
-    <nav style="background: #00c3a0; padding: 15px; text-align: center;">
-        <a href="/" style="color: white; margin: 0 15px;">🏠 Startseite</a>
-        <a href="/räume" style="color: white; margin: 0 15px;">📂 Alle Räume</a>
-    </nav>
-
-    <h1>👋 Willkommen beim Projekt Pausenhof</h1>
-    <h2>Flüstere anonym mit einem Code 🤫</h2>
-
-    {% if error %}
-        <p style="color:red;">{{ error }}</p>
-    {% endif %}
-
+    <h1>🚀 Flüster-Chat starten</h1>
     <form method="POST">
-        <input type="text" name="code" placeholder="🕵️ Geheimer Code" required />
-        <button type="submit">🎙️ Chat starten</button>
+        <input type="text" name="code" placeholder="Geheimer Code" required />
+        <button type="submit">Los geht's</button>
     </form>
-
-    <a href="/räume">
-        <button type="button" style="margin-top: 10px;">📂 Alle Räume anzeigen</button>
-    </a>
 </body>
 </html>
