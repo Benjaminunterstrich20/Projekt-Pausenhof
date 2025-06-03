@@ -1,21 +1,99 @@
 <!DOCTYPE html>
-<html>
-<head><meta charset="UTF-8" /><title>Chatraum {{ code }}</title></head>
+<html lang="de">
+<head>
+    <meta charset="UTF-8" />
+    <title>Chat Raum: {{ room }}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.socket.io/4.7.1/socket.io.min.js"></script>
+</head>
 <body>
-    <h1>Chatraum: {{ code }}</h1>
+    <h2>Raum: {{ room }} - User: {{ username }}</h2>
+    <div id="chat"></div>
+    <input type="text" id="message" placeholder="Deine Nachricht..." autocomplete="off" />
+    <input type="file" id="imageInput" accept="image/*" />
+    <button id="sendBtn">Senden</button>
+    <button id="leaveBtn">Raum verlassen</button>
 
-    <p>Aktuell dran: User {{ user }}</p>
+<script>
+    const socket = io();
 
-    <form method="POST">
-        <input type="text" name="message" placeholder="Deine Nachricht" required />
-        <button type="submit">Senden</button>
-    </form>
+    const room = "{{ room }}";
+    const username = "{{ username }}";
 
-    <h2>Nachrichtenverlauf:</h2>
-    <ul>
-        {% for msg in messages %}
-        <li>{{ msg }}</li>
-        {% endfor %}
-    </ul>
+    const chat = document.getElementById('chat');
+    const messageInput = document.getElementById('message');
+    const sendBtn = document.getElementById('sendBtn');
+    const imageInput = document.getElementById('imageInput');
+    const leaveBtn = document.getElementById('leaveBtn');
+
+    socket.emit('join', { room, username });
+
+    socket.on('system_message', data => {
+        addSystemMessage(data.msg);
+    });
+
+    socket.on('message', data => {
+        if (data.is_image) {
+            addImageMessage(data.username, data.msg);
+        } else {
+            addMessage(data.username, data.msg);
+        }
+    });
+
+    sendBtn.onclick = () => {
+        if (imageInput.files.length > 0) {
+            const file = imageInput.files[0];
+            const reader = new FileReader();
+            reader.onload = () => {
+                socket.emit('message', {
+                    room,
+                    username,
+                    msg: reader.result,
+                    is_image: true
+                });
+                addImageMessage('Ich', reader.result);
+                imageInput.value = '';
+            };
+            reader.readAsDataURL(file);
+        } else if (messageInput.value.trim() !== '') {
+            socket.emit('message', {
+                room,
+                username,
+                msg: messageInput.value.trim(),
+                is_image: false
+            });
+            addMessage('Ich', messageInput.value.trim());
+            messageInput.value = '';
+        }
+    };
+
+    leaveBtn.onclick = () => {
+        socket.emit('leave', { room, username });
+        window.location.href = '/';
+    };
+
+    function addMessage(user, text) {
+        const div = document.createElement('div');
+        div.textContent = `${user}: ${text}`;
+        chat.appendChild(div);
+        chat.scrollTop = chat.scrollHeight;
+    }
+
+    function addSystemMessage(text) {
+        const div = document.createElement('div');
+        div.classList.add('system');
+        div.textContent = text;
+        chat.appendChild(div);
+        chat.scrollTop = chat.scrollHeight;
+    }
+
+    function addImageMessage(user, dataUrl) {
+        const div = document.createElement('div');
+        div.innerHTML = `<b>${user}:</b><br><img src="${dataUrl}" alt="Bild">`;
+        chat.appendChild(div);
+        chat.scrollTop = chat.scrollHeight;
+    }
+</script>
 </body>
 </html>
