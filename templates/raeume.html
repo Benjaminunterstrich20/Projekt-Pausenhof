@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alle Pausenhof-Räume</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>📚 Aktive Chaträume</h1>
+
+    {% if codes %}
+        <ul>
+            {% for code in codes %}
+                <li><strong>{{ code }}</strong> – bereit zum Flüstern</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Keine aktiven Räume im Moment 🤫</p>
+    {% endif %}
+
+    <a href="/">⬅️ Zurück zur Startseite</a>
+</body>
+</html>
