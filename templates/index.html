@@ -1,11 +1,17 @@
 <!DOCTYPE html>
-<html>
-<head><meta charset="UTF-8" /><title>Chat Code eingeben</title></head>
+<html lang="de">
+<head>
+    <meta charset="UTF-8" />
+    <title>Projekt Pausenhof - Chat starten</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
 <body>
-    <h1>🚀 Flüster-Chat starten</h1>
-    <form method="POST">
-        <input type="text" name="code" placeholder="Geheimer Code" required />
-        <button type="submit">Los geht's</button>
-    </form>
+    <div class="container">
+        <h1>🚀 Flüster-Chat starten</h1>
+        <form method="POST" class="code-form">
+            <input type="text" name="code" placeholder="Geheimer Chat-Code" required autofocus />
+            <button type="submit">Los geht's!</button>
+        </form>
+    </div>
 </body>
 </html>
