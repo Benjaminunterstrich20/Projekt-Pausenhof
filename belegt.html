@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>🛑 Belegte Räume</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <nav style="background: #00c3a0; padding: 15px; text-align: center;">
+        <a href="/" style="color: white; margin: 0 15px;">🏠 Startseite</a>
+        <a href="/räume" style="color: white; margin: 0 15px;">📂 Alle Räume</a>
+        <a href="/belegt" style="color: white; margin: 0 15px;">🛑 Belegte Räume</a>
+    </nav>
+
+    <h1>🛑 Bereits belegte Codes</h1>
+
+    {% if belegte %}
+        <ul>
+            {% for code in belegte %}
+                <li style="color: darkred;">{{ code }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Alle Slots sind aktuell frei ✨</p>
+    {% endif %}
+</body>
+</html>
