@@ -1,0 +1,51 @@
+body {
+  font-family: 'Courier New', monospace;
+  background: #fdfcfb;
+  color: #222;
+}
+
+.container {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #fff;
+  border: 2px solid #222;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+h1, h2 {
+  color: #d10000;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input, button {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+}
+
+button {
+  background-color: #d10000;
+  color: white;
+  cursor: pointer;
+}
+
+.messages {
+  margin-top: 20px;
+}
+
+.message {
+  background: #ffecec;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  border-left: 4px solid #d10000;
+}
