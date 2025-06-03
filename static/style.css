@@ -1,51 +1,54 @@
 body {
-  font-family: 'Courier New', monospace;
-  background: #fdfcfb;
-  color: #222;
-}
-
-.container {
-  max-width: 500px;
-  margin: 50px auto;
-  padding: 20px;
-  background: #fff;
-  border: 2px solid #222;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', sans-serif;
+    background: url('/static/bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+    margin: 0;
+    padding: 0;
 }
 
 h1, h2 {
-  color: #d10000;
-  text-align: center;
+    margin-top: 40px;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px 20px;
+    border-radius: 12px;
+    display: inline-block;
 }
 
 form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+    background-color: rgba(0,0,0,0.5);
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 12px;
+    max-width: 400px;
 }
 
-input, button {
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 6px;
-  border: 1px solid #aaa;
+input[type="text"], button {
+    padding: 10px;
+    font-size: 16px;
+    margin: 5px 0;
+    width: 90%;
+    border-radius: 6px;
+    border: none;
 }
 
 button {
-  background-color: #d10000;
-  color: white;
-  cursor: pointer;
+    background-color: #00c3a0;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
 }
 
-.messages {
-  margin-top: 20px;
+button:hover {
+    background-color: #009e80;
 }
 
-.message {
-  background: #ffecec;
-  padding: 10px;
-  border-radius: 5px;
-  margin-bottom: 5px;
-  border-left: 4px solid #d10000;
+.chatbox {
+    background-color: rgba(0,0,0,0.5);
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 500px;
 }
