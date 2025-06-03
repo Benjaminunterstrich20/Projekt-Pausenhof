@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Alle Pausenhof-Räume</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <meta charset="UTF-8" />
+    <title>Alle Räume</title>
+    <link rel="stylesheet" href="/static/style.css" />
 </head>
 <body>
+    <nav style="background: #00c3a0; padding: 15px; text-align: center;">
+        <a href="/" style="color: white; margin: 0 15px;">🏠 Startseite</a>
+        <a href="/räume" style="color: white; margin: 0 15px;">📂 Alle Räume</a>
+    </nav>
+
     <h1>📚 Aktive Chaträume</h1>
 
     {% if codes %}
         <ul>
             {% for code in codes %}
-                <li><strong>{{ code }}</strong> – bereit zum Flüstern</li>
+                <li><strong>{{ code }}</strong></li>
             {% endfor %}
         </ul>
     {% else %}
-        <p>Keine aktiven Räume im Moment 🤫</p>
+        <p>Zurzeit keine offenen Räume 🤷‍♂️</p>
     {% endif %}
-
-    <a href="/">⬅️ Zurück zur Startseite</a>
 </body>
 </html>
